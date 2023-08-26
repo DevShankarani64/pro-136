@@ -1,0 +1,58 @@
+try: 
+  if gravity < 100:
+features_list.append("gravity")
+  planet_data.append("gravity")
+except:
+  planet_data.append("unknown")
+
+try:
+	try:
+		distance = 2*3.14*(float(planet_data[8].split("")[0]*1.496e+9))
+	except:
+		try:
+			distance = 2*3.14*(float(planet_data[8]*1.496e+9))
+		except:
+			pass
+	try:
+		time,unit = planet_data[9].split("")[0],planet_data[9].split("")[1]
+		if unit.lower()=="days":
+			time = float(time)
+		else:
+			time = float(time)*365
+	except:
+		time = planet_data[9]
+		time = time*86400
+		speed = distance/time
+	if speed<200:
+	features_list.append("speed")
+  		planet_data.append("speed")
+except:
+  	planet_data.append("unknown")
+
+#code for the final dict
+final_planet_list = []
+for planet_data in 
+planet_data_rows:
+temp_dict = {
+"name":
+planet_data[1],
+"distance_from_earth":
+planet_data[2],
+"planet_mass":
+planet_data[3],
+"planet_type":
+planet_data[6],
+"planet_radius":
+planet_data[7],
+"distance_from_their_sun":
+planet_data[8],
+"orbital_period":
+planet_data[9],
+"gravity":
+planet_data[20],
+"orbital_speed":
+planet_data[21],
+}
+temp_dict["specifications"] = final_dict[planet_data[1]]
+final_planet_list.append(temp_dict)
+print(final_planet_list)
